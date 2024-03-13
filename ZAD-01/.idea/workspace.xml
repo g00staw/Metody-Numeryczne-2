@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c618fc-3ecf-4dc6-b1db-7f33a3144e3e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f4c618fc-3ecf-4dc6-b1db-7f33a3144e3e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/konra/Desktop/studia/IV semestr/Język skryptowy/lab2",
+    "last_opened_file_path": "C:/Users/konra/Desktop/studia/IV semestr/Metody numeryczne 2",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
