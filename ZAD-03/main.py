@@ -20,7 +20,7 @@ def bisection_method():
 
     if is_f_continuous and has_diffrent_signs == True:
         print("Funkcja spełnia założenia Bolzano-Cauchy’ego. Oto rozwiązanie zadania: ")
-        bisection_method_algorithm(f, x, 0.01, start, end)
+        bisection_method_algorithm(f, x, 0.01, start, end, 0)
     else:
         print("Funkcja nie spełnia założeń Bolzano-Cauchy’ego. Nie można rozwiązać zadania.")
 
@@ -54,12 +54,12 @@ def check_signs(f, x, a, b):                                    # Sprawdzenie zn
     else:
         return False
 
-def bisection_method_algorithm(f, x, E, a, b):
+def bisection_method_algorithm(f, x, E, a, b, iteration):
 
     z = (a+b)/2
 
-
     if abs(f.subs(x, z)) < E:
+        print("Iteracje: ", iteration)
         print("Szukane miejsce zerowe to: ", z)
     else:
         if f.subs(x, z)*f.subs(x, a) < 0:
@@ -69,9 +69,11 @@ def bisection_method_algorithm(f, x, E, a, b):
 
         if b-a < E:
             searched_x = (b+a)/2
+            print("Iteracje: ", iteration)
             print("Szukany pierwiastek to: ", searched_x)
         else:
-            bisection_method_algorithm(f, x, E, a, b)
+            iteration = iteration + 1
+            bisection_method_algorithm(f, x, E, a, b, iteration)
 
 
 bisection_method()
