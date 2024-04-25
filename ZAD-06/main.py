@@ -2,7 +2,6 @@ import sys
 from sympy import Symbol, S, diff, Interval
 from sympy.calculus.util import continuous_domain
 
-
 # zadanie 6
 
 def falsi_method():
@@ -27,10 +26,10 @@ def falsi_method():
     if(is_continous and diffrent_signs == True):
         print("Funkcja spełnia założenia Bolzano-Cauchy’ego. Oto rozwiązanie zadania: ")
 
-        if(f.subs(x, start) * f_prime_prime.subs(x, start) > 0):
+        if(f_prime.subs(x, start) * f_prime_prime.subs(x, start) > 0):
             x0 = start
 
-        elif(f.subs(x, end) * f_prime_prime.subs(x, end) > 0):
+        elif(f_prime.subs(x, end) * f_prime_prime.subs(x, end) > 0):
             x0 = end
 
         falsi_method_algorithm(f, x, 0.00001, start, end, x0, 0)

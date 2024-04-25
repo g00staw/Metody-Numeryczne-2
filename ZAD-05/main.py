@@ -34,10 +34,11 @@ def secant_method():
         elif(f.subs(x, end) * f_prime_prime.subs(x, end) > 0):
             x0 = end
 
+        secant_method_algorithm(f, start, end, 0.0001, x)
 
 
     else:
-        print("Czy ciagla?: ",is_continous)
+        print("Czy ciagla?: ", is_continous)
         print("Czy rozne znaki?: ", diffrent_signs)
 
 def check_continous(f, x, interval):
@@ -47,26 +48,6 @@ def check_continous(f, x, interval):
     else:
         return False
 
-
-#def find_roots(f,x):
-#    x_initial_guesses = np.linspace(-10, 10, 1000)  # początkowe zgadnięcia
-#    roots = []
-#
-#    # Przekształć 'f' w funkcję, którą można wywołać
-#    f_callable = lambdify(x, f)
-#
-#    x_initial_guesses = np.linspace(-10, 10, 1000)  # początkowe zgadnięcia
-#    roots = []
-#
-#    for x_guess in x_initial_guesses:
-#        root = fsolve(f_callable, x_guess)
-#        if len(roots) == 0 or np.min(np.abs(roots - root)) > 1e-5:  # jeżeli znaleziony pierwiastek jest nowy
-#            roots.append(root)
-#
-#    if len(roots) == 1:
-#        print("Funkcja ma dokładnie jeden pierwiastek pojedynczy.")
-#    else:
-#        print("Funkcja nie ma dokładnie jednego pierwiastka pojedynczego.")
 
 def calculate_derivative(f, x):
     try:
@@ -90,5 +71,29 @@ def check_signs(f, x, a, b):                                    # Sprawdzenie zn
         return True
     else:
         return False
+
+
+def secant_method_algorithm(f, x0, x1, E, x):
+
+    # Sprawdzamy, czy już znaleźliśmy pierwiastek
+    if abs(f.subs(x, x0)) < E:
+        return x0
+    if abs(f.subs(x, x1)) < E:
+        return x1
+
+    # Główna pętla metody siecznych
+    while abs(x0 - x1) > E:
+        # Obliczamy nowe przybliżenie pierwiastka
+        x2 = x1 - (f.subs(x, x1) * (x1 - x0)) / (f.subs(x, x1) - f.subs(x, x0))
+
+        # Aktualizujemy punkty x0 i x1
+        x0, x1 = x1, x2
+
+    # Zwracamy znaleziony pierwiastek
+    print("Szukany pierwiastek to: ", x1)
+    return x1
+
+
+
 
 secant_method()
